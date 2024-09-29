@@ -1,20 +1,16 @@
 def execute_commands(commands):
     log = []
-    prev = None
     stack_max = []
     for command in commands:
         match command[0]:
             case "push":
                 x = command[1]
-                if (prev == None):
+                if not stack_max:
                     stack_max.append(x)
                 else:
-                    stack_max.append(max(prev, x))
-                prev = stack_max[-1]
-
+                    stack_max.append(max(stack_max[-1], x))
             case "pop":
                 stack_max.pop()
-                prev = stack_max[-1]
             case "max":
                 log.append(stack_max[-1])
     return log
