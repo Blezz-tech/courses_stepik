@@ -4,7 +4,7 @@ def execute_commands(commands):
     for command in commands:
         match command[0]:
             case "push":
-                x = command[1]
+                x = int(command[1])
                 if not stack_max:
                     stack_max.append(x)
                 else:
@@ -51,8 +51,8 @@ tasks = [
             "max",
         ],
         "output": [
-            "2",
-            "2",
+            2,
+            2,
         ]
     },
     {
@@ -64,8 +64,8 @@ tasks = [
             "max",
         ],
         "output": [
-            "2",
-            "1",
+            2,
+            1,
         ]
     },
     {
@@ -82,10 +82,10 @@ tasks = [
             "max",
         ],
         "output": [
-            "9",
-            "9",
-            "9",
-            "9",
+            9,
+            9,
+            9,
+            9,
         ]
     },
     {
@@ -124,17 +124,17 @@ tasks = [
             "max",
         ],
         "output": [
-            "11",
-            "10",
-            "9",
-            "8",
-            "7",
-            "6",
-            "5",
-            "4",
-            "3",
-            "2",
-            "1",
+            11,
+            10,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
         ]
     },
 ]
