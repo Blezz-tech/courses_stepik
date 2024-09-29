@@ -1,18 +1,20 @@
 def execute_commands(commands):
     log = []
-    stack = []
+    prev = None
     stack_max = []
     for command in commands:
         match command[0]:
             case "push":
-                stack.append(command[1])
-                if (len(stack) == 1):
-                    stack_max.append(stack[-1])
+                x = command[1]
+                if (prev == None):
+                    stack_max.append(x)
                 else:
-                    stack_max.append(max(stack_max[-1], stack[-1]))
+                    stack_max.append(max(prev, x))
+                prev = stack_max[-1]
+
             case "pop":
-                stack.pop()
                 stack_max.pop()
+                prev = stack_max[-1]
             case "max":
                 log.append(stack_max[-1])
     return log
@@ -89,7 +91,56 @@ tasks = [
             "9",
             "9",
         ]
-    }
+    },
+    {
+        "input": [
+            "push 1",
+            "push 2",
+            "push 3",
+            "push 4",
+            "push 5",
+            "push 6",
+            "push 7",
+            "push 8",
+            "push 9",
+            "push 10",
+            "push 11",
+            "max",
+            "pop",
+            "max",
+            "pop",
+            "max",
+            "pop",
+            "max",
+            "pop",
+            "max",
+            "pop",
+            "max",
+            "pop",
+            "max",
+            "pop",
+            "max",
+            "pop",
+            "max",
+            "pop",
+            "max",
+            "pop",
+            "max",
+        ],
+        "output": [
+            "11",
+            "10",
+            "9",
+            "8",
+            "7",
+            "6",
+            "5",
+            "4",
+            "3",
+            "2",
+            "1",
+        ]
+    },
 ]
 
 for task in tasks:
