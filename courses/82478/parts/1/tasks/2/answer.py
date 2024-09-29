@@ -35,9 +35,9 @@ def main():
     commands = get_commands(int(input()))  
     result = work(commands)
     if result != []:
-        print("\n".join(result))
+        print("\n".join(list(map(str, result))))
 
-# main()
+main()
 
 # Для проверки, в решение не входит
 
